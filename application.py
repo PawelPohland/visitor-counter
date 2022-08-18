@@ -14,4 +14,8 @@ def create_app():
     db.init_app(app)
     migrate = Migrate(app, db)
 
+    from counter.views import counter_app
+
+    app.register_blueprint(counter_app)
+
     return app
